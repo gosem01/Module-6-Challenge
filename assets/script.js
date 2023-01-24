@@ -20,12 +20,23 @@ function searchAndSaveToHistory() {
         .then((response) => response.json())
         .then((data) => console.log(data));
 
+    var todaysTemp;
+    var todaysWind;
+    var todaysHumidity;
+
     var todaysResult = document.createElement('div');
     todaysResult.setAttribute('id', 'weatherToday');
     todaysResult.setAttribute('class', 'today-result-style')
     document.getElementById('currentDayResult').appendChild(todaysResult);
 
     document.getElementById('weatherToday').appendChild(p);
-    p.innerHTML = searchedLoction;
+    p.innerHTML = searchedLoction + " (" + getCurrentDate() + ")";
 
+}
+
+function getCurrentDate() {
+    const options = {day: "numeric", month: "numeric", year: "numeric"};
+    var currentDate = new Date(Date.now());
+    var date = currentDate.toLocaleDateString("en-US", options)
+    return date;
 }
