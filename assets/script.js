@@ -1,6 +1,11 @@
 const APIKey = "7c724132c16adcc022a4af6e24c9c414";
 
 function searchAndSaveToHistory() {
+
+    if(document.getElementById('weatherToday') !== null) {
+        document.getElementById('weatherToday').remove();
+    }
+
     var searchedLoction = document.getElementById('search-field').value;
     console.log(searchedLoction);
 
@@ -14,5 +19,13 @@ function searchAndSaveToHistory() {
         "&units=imperial")
         .then((response) => response.json())
         .then((data) => console.log(data));
+
+    var todaysResult = document.createElement('div');
+    todaysResult.setAttribute('id', 'weatherToday');
+    todaysResult.setAttribute('class', 'today-result-style')
+    document.getElementById('currentDayResult').appendChild(todaysResult);
+
+    document.getElementById('weatherToday').appendChild(p);
+    p.innerHTML = searchedLoction;
 
 }

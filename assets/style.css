@@ -74,3 +74,8 @@ main #fiveDayResult {
 #search-history {
     border-width: 0px;
 }
+
+.today-result-style {
+    border: 1px solid black;
+    padding: 5px;
+}
