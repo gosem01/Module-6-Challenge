@@ -34,9 +34,22 @@ main aside p {
     padding-bottom: 4px;
 }
 
+main #result-wrapper {
+    display: flex;
+    display: inline-block;
+    width: 100%;
+}
+
 main #currentDayResult {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main #fiveDayResult {
     width: 70%;
-    display: inline;
+    display: flex;
+    flex-direction: column;
 }
 
 #search {

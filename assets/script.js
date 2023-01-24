@@ -8,4 +8,11 @@ function searchAndSaveToHistory() {
     p.innerHTML = searchedLoction;
     document.getElementById('search-history').appendChild(p);
 
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=' + 
+        searchedLoction + 
+        "&appid=" + APIKey + 
+        "&units=imperial")
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
 }
