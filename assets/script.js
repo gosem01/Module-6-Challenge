@@ -1,6 +1,6 @@
 const APIKey = "7c724132c16adcc022a4af6e24c9c414";
 
-function searchAndSaveToHistory() {
+async function searchAndSaveToHistory() {
 
     if(document.getElementById('weatherToday') !== null) {
         document.getElementById('weatherToday').remove();
@@ -13,24 +13,63 @@ function searchAndSaveToHistory() {
     p.innerHTML = searchedLoction;
     document.getElementById('search-history').appendChild(p);
 
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=' + 
+    var todaysWeatherData;
+    var todaysTemp;
+    var todaysWind;
+    var todaysHumidity;
+
+    await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + 
         searchedLoction + 
         "&appid=" + APIKey + 
         "&units=imperial")
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then(response => {todaysWeatherData = response;})
+        // .then((data) => {
+        //     todaysWeatherData = data;
+        // })
+        // .then((data) => console.log(data));
+        .then(() => console.log(todaysWeatherData));
+            // todaysTemp = $(todaysWeatherData.main.temp)
 
-    var todaysTemp;
-    var todaysWind;
-    var todaysHumidity;
+    // todaysWeatherData = await response.json();
+
+    todaysTemp = todaysWeatherData.main.temp;
+    todaysWind = todaysWeatherData.wind.speed;
+    todaysHumidity = todaysWeatherData.main.humidity;
+    cityName = todaysWeatherData.name;
+
+    console.log(todaysTemp);
+    console.log(todaysWind);
+    console.log(todaysHumidity);
+    console.log(cityName);
 
     var todaysResult = document.createElement('div');
     todaysResult.setAttribute('id', 'weatherToday');
     todaysResult.setAttribute('class', 'today-result-style')
     document.getElementById('currentDayResult').appendChild(todaysResult);
 
-    document.getElementById('weatherToday').appendChild(p);
-    p.innerHTML = searchedLoction + " (" + getCurrentDate() + ")";
+    var todayHeading = document.createElement('p');
+    document.getElementById('weatherToday').appendChild(todayHeading);
+    todayHeading.innerHTML = cityName + " (" + getCurrentDate() + ")";
+
+    var todayTemp = document.createElement('p');
+    document.getElementById('weatherToday').appendChild(todayTemp);
+    todayTemp.innerHTML = "Temp: " + todaysTemp + "°F";
+
+    var todayWind = document.createElement('p');
+    document.getElementById('weatherToday').appendChild(todayWind);
+    todayWind.innerHTML = "Wind: " + todaysWind + " MPH";
+
+    var todayHumidity = document.createElement('p');
+    document.getElementById('weatherToday').appendChild(todayHumidity);
+    todayHumidity.innerHTML = "Humidity: " + todaysHumidity + " %";
+    
+    // document.getElementById('weatherToday').appendChild(p);
+    // p.innerHTML = "Temp: " + todaysTemp + "F";
+    // document.getElementById('weatherToday').appendChild(p);
+    // p.innerHTML = "Wind: " + todaysWind + "MPH";
+    // document.getElementById('weatherToday').appendChild(p);
+    // p.innerHTML = "Humidity: " + todaysHumidity + "%";
 
 }
 
