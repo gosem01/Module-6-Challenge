@@ -41,15 +41,15 @@ main #result-wrapper {
 }
 
 main #currentDayResult {
-    width: 100%;
+    width: 99%;
     display: flex;
     flex-direction: column;
 }
 
 main #fiveDayResult {
-    width: 70%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #search {
@@ -84,4 +84,19 @@ main #fiveDayResult {
     font-size: x-large;
     margin-top: 5px;
     font-weight: 800;
+}
+
+.forecast-result-style {
+    float: left;
+    flex-direction: row;
+    width: 25%;
+    border: 1px solid black;
+    background-color: #808080;
+    color: white;
+}
+
+#fiveDayResult div {
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
 }
