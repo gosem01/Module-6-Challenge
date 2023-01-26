@@ -86,6 +86,8 @@ async function searchAndSaveToHistory() {
 
     console.log(forecastedWeatherData.list.length);
 
+    document.getElementById('5-day-heading').setAttribute('style', 'display: visible');
+
     var date;
     var temp;
     var wind;
