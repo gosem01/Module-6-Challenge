@@ -34,7 +34,7 @@ async function searchAndSaveToHistory() {
     var todaysHumidity;
     var todaysWeatherIcon;
 
-    await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + 
+    await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + 
         searchedLoction + 
         "&appid=" + APIKey + 
         "&units=imperial")
@@ -60,7 +60,7 @@ async function searchAndSaveToHistory() {
 
     var todayHeading = document.createElement('p');
     document.getElementById('weatherToday').appendChild(todayHeading);
-    todayHeading.innerHTML = cityName + " (" + getCurrentDate() + ") " + "<img src='" + "http://openweathermap.org/img/wn/" + todaysWeatherIcon + ".png'>";
+    todayHeading.innerHTML = cityName + " (" + getCurrentDate() + ") " + "<img src='" + "https://openweathermap.org/img/wn/" + todaysWeatherIcon + ".png'>";
 
     var todayTemp = document.createElement('p');
     document.getElementById('weatherToday').appendChild(todayTemp);
@@ -76,7 +76,7 @@ async function searchAndSaveToHistory() {
 
     var forecastedWeatherData;
 
-    await fetch('http://api.openweathermap.org/data/2.5/forecast?q=' + 
+    await fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + 
         searchedLoction + 
         "&appid=" + APIKey + 
         "&units=imperial")
@@ -98,7 +98,7 @@ async function searchAndSaveToHistory() {
     document.getElementById('fiveDayResult').appendChild(forecastDay1Element);
     dateObject = new Date(forecastedWeatherData.list[0].dt_txt);
     date = document.createElement('p');
-    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "http://openweathermap.org/img/wn/" + forecastedWeatherData.list[0].weather[0].icon + ".png'>";
+    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "https://openweathermap.org/img/wn/" + forecastedWeatherData.list[0].weather[0].icon + ".png'>";
     temp = document.createElement('p');
     temp.innerHTML = 'Temp: ' + forecastedWeatherData.list[0].main.temp + "°F";
     wind = document.createElement('p');
@@ -116,7 +116,7 @@ async function searchAndSaveToHistory() {
     document.getElementById('fiveDayResult').appendChild(forecastDay2Element);
     dateObject = new Date(forecastedWeatherData.list[6].dt_txt);
     date = document.createElement('p');
-    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "http://openweathermap.org/img/wn/" + forecastedWeatherData.list[6].weather[0].icon + ".png'>";
+    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "https://openweathermap.org/img/wn/" + forecastedWeatherData.list[6].weather[0].icon + ".png'>";
     temp = document.createElement('p');
     temp.innerHTML = 'Temp: ' + forecastedWeatherData.list[6].main.temp + "°F";
     wind = document.createElement('p');
@@ -134,7 +134,7 @@ async function searchAndSaveToHistory() {
     document.getElementById('fiveDayResult').appendChild(forecastDay3Element);
     dateObject = new Date(forecastedWeatherData.list[14].dt_txt);
     date = document.createElement('p');
-    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "http://openweathermap.org/img/wn/" + forecastedWeatherData.list[14].weather[0].icon + ".png'>";
+    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "https://openweathermap.org/img/wn/" + forecastedWeatherData.list[14].weather[0].icon + ".png'>";
     temp = document.createElement('p');
     temp.innerHTML = 'Temp: ' + forecastedWeatherData.list[14].main.temp + "°F";
     wind = document.createElement('p');
@@ -152,7 +152,7 @@ async function searchAndSaveToHistory() {
     document.getElementById('fiveDayResult').appendChild(forecastDay4Element);
     dateObject = new Date(forecastedWeatherData.list[22].dt_txt);
     date = document.createElement('p');
-    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "http://openweathermap.org/img/wn/" + forecastedWeatherData.list[22].weather[0].icon + ".png'>";
+    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "https://openweathermap.org/img/wn/" + forecastedWeatherData.list[22].weather[0].icon + ".png'>";
     temp = document.createElement('p');
     temp.innerHTML = 'Temp: ' + forecastedWeatherData.list[22].main.temp + "°F";
     wind = document.createElement('p');
@@ -170,7 +170,7 @@ async function searchAndSaveToHistory() {
     document.getElementById('fiveDayResult').appendChild(forecastDay5Element);
     dateObject = new Date(forecastedWeatherData.list[30].dt_txt);
     date = document.createElement('p');
-    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "http://openweathermap.org/img/wn/" + forecastedWeatherData.list[30].weather[0].icon + ".png'>";
+    date.innerHTML = dateObject.toLocaleDateString() + "<br><img src='" + "https://openweathermap.org/img/wn/" + forecastedWeatherData.list[30].weather[0].icon + ".png'>";
     temp = document.createElement('p');
     temp.innerHTML = 'Temp: ' + forecastedWeatherData.list[30].main.temp + "°F";
     wind = document.createElement('p');
